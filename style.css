@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vh;
+    background-color: cadetblue;
+}
+
+.main {
+    position:absolute;
+    top: 300px;
+    display: flex;
+    justify-content: center;
+    min-width: 100vh;
+    background-color:blue;
+}

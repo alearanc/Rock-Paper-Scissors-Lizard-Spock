@@ -1,15 +1,18 @@
 let options = [`rock`, `papper`, `scissors`, `lizard`, `Spock`];
-let mSelection = options[Math.floor(Math.random() * options.length)];
+// let mSelection = options[Math.floor(Math.random() * options.length)];
 let pSelection;
+let mSelection;
 
 //utilizo la constante main para referirme al contenedor de los botones
-//esto es con el fin de no hace un addEventListener para cada boton
+//esto es con el fin de no hacer un addEventListener para cada botón
 
 const main = document.getElementById('main');
 
 main.addEventListener("click", (e) => {
+    mSelection = options[Math.floor(Math.random() * options.length)];   
     pSelection = e.target.id;
     logical();
+
 });
 
 function logical() {

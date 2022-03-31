@@ -1,16 +1,74 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 100vh;
-    background-color: cadetblue;
+    background-image: url('/assets/yellow-orange-and-red-gradient-background-free-photo.jpg');
+    background-position: center;
+}
+
+.div_titulo {
+    position: relative;
+    margin: auto;
+    background-color: transparent;
+}
+
+.titulo {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 75px;
+    margin: auto;
+    width: 1500px;
+    /* top:50px; */
+    text-align: center;
 }
 
 .main {
-    position:absolute;
-    top: 300px;
+    position:relative;
+    margin: auto;
+    width: 1250px;
+    height: 250px;
     display: flex;
+    background-color: transparent;
     justify-content: center;
-    min-width: 100vh;
-    background-color:blue;
+    align-items: center;
+}
+
+.rock {
+    position:relative;
+    right: 200px;
+    background-color: transparent;
+}
+
+.paper {
+    position:relative;
+    right: 100px;
+    background-color: transparent;
+}
+
+.scissors {
+    position:relative;
+    background-color: transparent;
+}
+
+.lizard {
+    position:relative;
+    left: 100px;
+    background-color: transparent;
+}
+
+.spock {
+    position: relative;
+    left: 200px;
+    background-color: transparent;
+}
+
+.btn {
+    width: 150px;
+    background-color: transparent;
+}
+
+.father {
+    font-size: 100px;
+}
+
+.father .son {
+    font-size: 100px;
+    color: rgba(200,35,41,255);
+    text-shadow: -8px 8px 5px black;
 }

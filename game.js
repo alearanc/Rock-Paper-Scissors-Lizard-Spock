@@ -1,4 +1,4 @@
-let options = [`rock`, `papper`, `scissors`, `lizard`, `Spock`];
+let options = [`rock`, `paper`, `scissors`, `lizard`, `Spock`];
 // let mSelection = options[Math.floor(Math.random() * options.length)];
 let pSelection;
 let mSelection;
@@ -11,16 +11,15 @@ const main = document.getElementById('main');
 main.addEventListener("click", (e) => {
     mSelection = options[Math.floor(Math.random() * options.length)];   
     pSelection = e.target.id;
-    logical();
-
+    logic();
 });
 
-function logical() {
+function logic() {
     switch (pSelection) {
         case 'btn-rk': {
             switch (mSelection) {
                 case options[0]:
-                    alert('Tie!');
+                    alert("It's a Tie!");
                     break;
                 case options[1]:
                     alert('You lost! Paper covers rock');
@@ -45,7 +44,7 @@ function logical() {
                     alert('You win! Paper covers rock');
                     break;
                 case options[1]:
-                    alert('Tie!');
+                    alert("It's a Tie!");
                     break;
                 case options[2]:
                     alert('You lost! Scissors cuts paper');
@@ -70,7 +69,7 @@ function logical() {
                     alert('You win! Scissors cuts paper');
                     break;
                 case options[2]:
-                    alert('Tie!');
+                    alert("It's a Tie!");
                     break;
                 case options[3]:
                     alert('You win! Scissors decapites lizard');
@@ -95,7 +94,7 @@ function logical() {
                     alert('You lost! Scissors decapites lizard');
                     break;
                 case options[3]:
-                    alert('Tie!');
+                    alert("It's a Tie!");
                     break;
                 case options[4]:
                     alert('You win! Lizard poisons Spock');
@@ -120,7 +119,7 @@ function logical() {
                     alert('You lost! Lizard poisons Spock');
                     break;
                 case options[4]:
-                    alert('Tie!');
+                    alert("It's a Tie!");
                     break;
                 default: alert('sale default');
             }

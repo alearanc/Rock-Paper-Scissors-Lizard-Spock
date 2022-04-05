@@ -1,7 +1,29 @@
-let options = [`rock`, `paper`, `scissors`, `lizard`, `Spock`];
-// let mSelection = options[Math.floor(Math.random() * options.length)];
-let pSelection;
-let mSelection;
+let text = [`YOU WIN!`, `YOU LOST!`, `IT'S A TIE!`];
+let options = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
+
+let pSelection, 
+    mSelection, 
+    result, 
+    cartel
+    overLay = document.getElementById('overlay'),
+    popUp = document.getElementById('popup')
+    btnClosePopUp = document.getElementById('submit-btn');
+
+let round = [
+    [0, 'p', 'm', 'm', 'p'],
+    ['m', 0, 'p', 'p', 'm'],
+    ['p', 'm', 0, 'm', 'p'],
+    ['p', 'm', 'p', 0, 'm'],
+    ['m', 'p', 'm', 'p', 0]
+];
+
+let descMoves = [
+    ['', `Paper covers Rock`, `Rock crushes Scissors`, `Rock crushes Lizard`, `Spock vaporizes Rock`],
+    [`Paper covers Rock`, '', `Scissors cuts Paper`, `Lizard eats Paper`, `Paper disproves Spock`],
+    [`Rock crushes Scissors`, `Scissors cuts Paper`, '', `Scissors decapites Lizard`, `Spock smashes Scissors`],
+    [`Rock crushes Lizard`, `Lizard eats Paper`, `Scissors decapites Lizard`, '', `Lizard poisons Spock`],
+    [`Spock vaporizes Rock`, `Paper disproves Spock`, `Spock smashes Scissors`, `Lizard poisons Spock`, '']
+];
 
 //utilizo la constante main para referirme al contenedor de los botones
 //esto es con el fin de no hacer un addEventListener para cada botón
@@ -9,121 +31,44 @@ let mSelection;
 const main = document.getElementById('main');
 
 main.addEventListener("click", (e) => {
-    mSelection = options[Math.floor(Math.random() * options.length)];   
+    mSelection = Math.floor(Math.random() * options.length);   
     pSelection = e.target.id;
+    result = round[mSelection][pSelection];
     logic();
+    overLay.classList.add('active');
+    popUp.classList.add('active');
+});
+
+btnClosePopUp.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popUp.classList.remove('active');
 });
 
 function logic() {
-    switch (pSelection) {
-        case 'btn-rk': {
-            switch (mSelection) {
-                case options[0]:
-                    alert("It's a Tie!");
-                    break;
-                case options[1]:
-                    alert('You lost! Paper covers rock');
-                    break;
-                case options[2]:
-                    alert('You win! Rock crushes scissors');
-                    break;
-                case options[3]:
-                    alert('You win! Rock crushes lizard');
-                    break;
-                case options[4]:
-                    alert('You lost! Spock vaporizes rock');
-                    break;
-                default: alert('sale default');
-            }
-        }
-        break;
-
-        case 'btn-pp': {
-            switch (mSelection) {
-                case options[0]:
-                    alert('You win! Paper covers rock');
-                    break;
-                case options[1]:
-                    alert("It's a Tie!");
-                    break;
-                case options[2]:
-                    alert('You lost! Scissors cuts paper');
-                    break;
-                case options[3]:
-                    alert('You lost! Lizard eats paper');
-                    break;
-                case options[4]:
-                    alert('You win! Paper disproves Spock');
-                    break;
-                default: alert('sale default');
-            }
-        }
-        break;
-
-        case 'btn-sc': {
-            switch (mSelection) {
-                case options[0]:
-                    alert('You lost! Rock crushes scissors');
-                    break;
-                case options[1]:
-                    alert('You win! Scissors cuts paper');
-                    break;
-                case options[2]:
-                    alert("It's a Tie!");
-                    break;
-                case options[3]:
-                    alert('You win! Scissors decapites lizard');
-                    break;
-                case options[4]:
-                    alert('You lost! Spock smashes scissors');
-                    break;
-                default: alert('sale default');
-            }
-        }
-        break;
-
-        case 'btn-lz': {
-            switch (mSelection) {
-                case options[0]:
-                    alert('You lost! Rock crushes lizard');
-                    break;
-                case options[1]:
-                    alert('You win! Lizard eats paper');
-                    break;
-                case options[2]:
-                    alert('You lost! Scissors decapites lizard');
-                    break;
-                case options[3]:
-                    alert("It's a Tie!");
-                    break;
-                case options[4]:
-                    alert('You win! Lizard poisons Spock');
-                    break;
-                default: alert('sale default');
-            }
-        }
-        break;
-
-        case 'btn-sp': {
-            switch (mSelection) {
-                case options[0]:
-                    alert('You win! Spock vaporizes rock');
-                    break;
-                case options[1]:
-                    alert('You lost! Paper disproves Spock');
-                    break;
-                case options[2]:
-                    alert('You win! Spock smashes scissors');
-                    break;
-                case options[3]:
-                    alert('You lost! Lizard poisons Spock');
-                    break;
-                case options[4]:
-                    alert("It's a Tie!");
-                    break;
-                default: alert('sale default');
-            }
-        }
-        break;
+    switch(result) {
+        case 'p':
+            let aviso1 = document.getElementById('h3-text');
+            aviso1.style.color='green';
+            aviso1.innerHTML = `${text[0]}`;
+            document.getElementById('h4-player').innerHTML = `Player: ${options[pSelection]}`;
+            document.getElementById('h4-opponent').innerHTML = `Opponent: ${options[mSelection]}`;
+            document.getElementById('h4-desc').innerHTML = `${descMoves[mSelection][pSelection]}`
+            break;
+        case 'm':
+            let aviso2 = document.getElementById('h3-text');
+            aviso2.style.color='red';
+            aviso2.innerHTML = `${text[1]}`;
+            document.getElementById('h4-player').innerHTML = `Player: ${options[pSelection]}`;
+            document.getElementById('h4-opponent').innerHTML = `Opponent: ${options[mSelection]}`;
+            document.getElementById('h4-desc').innerHTML = `${descMoves[mSelection][pSelection]}`
+            break;
+        default:
+            let aviso3 = document.getElementById('h3-text');
+            aviso3.style.color = 'grey';
+            aviso3.innerHTML = `${text[2]}`;
+            document.getElementById('h4-player').innerHTML = `Player: ${options[pSelection]}`;
+            document.getElementById('h4-opponent').innerHTML = `Machine: ${options[mSelection]}`;
+            document.getElementById('h4-desc').innerHTML = `${descMoves[mSelection][pSelection]}`
+            break;
     }
-}
+};

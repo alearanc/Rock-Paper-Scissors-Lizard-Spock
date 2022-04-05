@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Papper Scissors Lizard Spock</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/73545f3997.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
@@ -14,34 +15,49 @@
     </div>
 
     <div class="main" id = "main">
-
-        <div class="rock">
-            <input type="image" src="./assets/rock.png" id="btn-rk" class="btn">
+        <div class="option">
+            <input type="image" src="./assets/rock.png" id="0" class="btn">
         </div>
         
-        <div class="paper">
-            <input type="image" src="./assets/paper.png" id="btn-pp" class="btn">
+        <div class="option">
+            <input type="image" src="./assets/paper.png" id="1" class="btn">
         </div>
 
-        <div class="scissors">
-            <input type="image" src="./assets/scissors.png" id="btn-sc" class="btn">
+        <div class="option">
+            <input type="image" src="./assets/scissors.png" id="2" class="btn">
         </div>
 
-        <div class="lizard">
-            <input type="image" src="./assets/lizard.png" id="btn-lz" class="btn">
+        <div class="option">
+            <input type="image" src="./assets/lizard.png" id="3" class="btn">
         </div>
 
-        <div class="spock">
-            <input type="image" src="./assets/spock.png" id="btn-sp" class="btn">
+        <div class="option">
+            <input type="image" src="./assets/spock.png" id="4" class="btn">
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="overlay" id="overlay">
+
+            <div class="popup" id="popup">
+                <!-- <a href="#" id="btn-close-popup" class="btn-close-popup"><i class="fas fa-times"></i></a> -->
+
+                <h3 id="h3-text">Hola</h3>
+
+                <h4 id="h4-player"></h4>
+                <h4 id="h4-opponent"></h4>
+
+                <h4 id="h4-desc"></h4>
+
+                <form action="">
+                    <input type="submit" class="submit-btn" id="submit-btn" value="PLAY AGAIN">
+                </form>
+            </div>
+
         </div>
 
     </div>
-<!-- 
-    <div>
-        <div class="popup">
-
-        </div>
-    </div> -->
 
     <script src="game.js"></script>
 </body>

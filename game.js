@@ -67,7 +67,7 @@ function logic() {
             aviso3.style.color = 'grey';
             aviso3.innerHTML = `${text[2]}`;
             document.getElementById('h4-player').innerHTML = `Player: ${options[pSelection]}`;
-            document.getElementById('h4-opponent').innerHTML = `Machine: ${options[mSelection]}`;
+            document.getElementById('h4-opponent').innerHTML = `Opponent: ${options[mSelection]}`;
             document.getElementById('h4-desc').innerHTML = `${descMoves[mSelection][pSelection]}`
             break;
     }
